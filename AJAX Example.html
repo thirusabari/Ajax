@@ -1,0 +1,25 @@
+<!DOCTYPEhtml>
+<html>
+    <head>
+        <title>AJAX Example Explained</title>
+    </head>
+    <body>
+        <h1>AJAX Example Explained</h1>
+        <div id="demo">
+            <h2>Let AJAX Change this text.</h2>
+            <button type="button" onclick="loadDoc()">Change Content</button>
+        </div>
+    </body>
+    <script>
+    function loadDoc(){
+        var xhttp=new XMLHttpRequest();
+        xhttp.onreadystatechange=function(){
+            if(this.readyState==4&&this.status==200){
+                document.getElementById("demo").innerHTML=this.responseText;
+            }
+        };
+        xhttp.open("GET","ajax_info.txt",true);
+        xhttp.send();
+    }
+    </script>
+</html>
